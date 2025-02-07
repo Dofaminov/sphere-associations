@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('sphereButton');
     loadSpheres().then(spheres => {
         button.addEventListener('click', () => {
-            // Если кнопка заблокирована, игнорируем нажатие
+            // Если кнопка уже заблокирована, игнорируем нажатие
             if (buttonDisabled) return;
 
             // Блокируем кнопку на 20 секунд
