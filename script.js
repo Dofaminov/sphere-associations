@@ -5,6 +5,8 @@ function loadSpheres() {
         .then(data => data.split('\n').filter(line => line.trim() !== ''));
 }
 
+let buttonDisabled = false; // Флаг для отслеживания состояния кнопки
+
 // Функция для показа результата
 function showResult(sphere) {
     const resultDiv = document.getElementById('result');
@@ -21,14 +23,10 @@ function showResult(sphere) {
         resultDiv.classList.add('hidden');
         sphereName.textContent = '';
         instruction.textContent = '';
-    }, 20000);
-}
 
-// Функция для изменения цвета кнопки при нажатии
-function changeButtonColor(button) {
-    button.style.backgroundColor = '#ef5350'; // Приглушенный лососевый
-    setTimeout(() => {
-        button.style.backgroundColor = '#7cb342'; // Приглушенный салатовый
+        // Разблокируем кнопку после 20 секунд
+        buttonDisabled = false;
+        document.getElementById('sphereButton').disabled = false;
     }, 20000);
 }
 
@@ -37,9 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const button = document.getElementById('sphereButton');
     loadSpheres().then(spheres => {
         button.addEventListener('click', () => {
+            // Если кнопка заблокирована, игнорируем нажатие
+            if (buttonDisabled) return;
+
+            // Блокируем кнопку на 20 секунд
+            buttonDisabled = true;
+            button.disabled = true;
+
+            // Выбираем случайную сферу и показываем её
             const randomSphere = spheres[Math.floor(Math.random() * spheres.length)];
             showResult(randomSphere);
-            changeButtonColor(button);
         });
     });
 });
