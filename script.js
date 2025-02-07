@@ -27,6 +27,7 @@ function showResult(sphere) {
         // Разблокируем кнопку после 20 секунд
         buttonDisabled = false;
         document.getElementById('sphereButton').disabled = false;
+        document.getElementById('sphereButton').classList.remove('button-disabled'); // Удаляем класс
     }, 20000);
 }
 
@@ -41,6 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Блокируем кнопку на 20 секунд
             buttonDisabled = true;
             button.disabled = true;
+
+            // Добавляем класс для изменения цвета
+            button.classList.add('button-disabled');
 
             // Выбираем случайную сферу и показываем её
             const randomSphere = spheres[Math.floor(Math.random() * spheres.length)];
