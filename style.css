@@ -1,0 +1,74 @@
+/* Общие настройки */
+body {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Логотип */
+.logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Кнопка */
+#sphereButton {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #7cb342; /* Приглушенный салатовый */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#sphereButton:hover {
+    background-color: #689f38;
+}
+
+#sphereButton:active {
+    background-color: #ef5350; /* Приглушенный лососевый */
+}
+
+/* Результат */
+#result {
+    margin-top: 40px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#sphereName {
+    font-size: 28px;
+    color: #2196f3; /* Приглушенный синий */
+    margin-bottom: 20px;
+}
+
+#instruction {
+    font-size: 18px;
+}
